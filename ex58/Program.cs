@@ -14,21 +14,21 @@ resultMatrix = MultiMatrix(resultMatrix, firstMatrix, secondMatrix);
 Console.WriteLine("Произведение двух матриц:");
 PrintArray(resultMatrix);
 
-int [,] MultiMatrix(int[,] matrix, int[,] first, int[,] second)
+int [,] MultiMatrix(int[,] result, int[,] first, int[,] second) // метод вычисления произв-ния матриц
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < first.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < second.GetLength(1); j++)
         {
             int sum = 0;
             for (int k = 0; k < first.GetLength(1); k++)
             {
                 sum += first[i, k] * second[k, j];
             }
-            matrix[i, j] = sum;
+            result[i, j] = sum;
         }
     }
-    return matrix;
+    return result;
 }
 
 int[,] FillArray(int[,] matrix) // м-д заполнения массива
@@ -42,7 +42,6 @@ int[,] FillArray(int[,] matrix) // м-д заполнения массива
     }
     return matrix;
 }
-
 
 void PrintArray(int[,] matrix) // м-д печати массива
 {
