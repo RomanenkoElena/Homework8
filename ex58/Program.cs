@@ -14,7 +14,7 @@ resultMatrix = MultiMatrix(resultMatrix, firstMatrix, secondMatrix);
 Console.WriteLine("Произведение двух матриц:");
 PrintArray(resultMatrix);
 
-int [,] MultiMatrix(int[,] result, int[,] first, int[,] second) // метод вычисления произв-ния матриц
+int[,] MultiMatrix(int[,] result, int[,] first, int[,] second) // метод вычисления произв-ния матриц
 {
     for (int i = 0; i < first.GetLength(0); i++)
     {
