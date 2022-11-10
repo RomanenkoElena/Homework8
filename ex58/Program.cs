@@ -10,24 +10,25 @@ Console.WriteLine("Вторая матрица:");
 PrintArray(secondMatrix);
 
 int[,] resultMatrix = new int[2, 2]; // иниц-ция матрицы с решением
-MultiMatrix(resultMatrix);
+resultMatrix = MultiMatrix(resultMatrix, firstMatrix, secondMatrix);
 Console.WriteLine("Произведение двух матриц:");
 PrintArray(resultMatrix);
 
-void MultiMatrix(int[,] matrix)
+int [,] MultiMatrix(int[,] matrix, int[,] first, int[,] second)
 {
-    for (int i = 0; i < resultMatrix.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int j = 0; j < resultMatrix.GetLength(1); j++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
             int sum = 0;
-            for (int k = 0; k < firstMatrix.GetLength(1); k++)
+            for (int k = 0; k < first.GetLength(1); k++)
             {
-                sum += firstMatrix[i, k] * secondMatrix[k, j];
+                sum += first[i, k] * second[k, j];
             }
-            resultMatrix[i, j] = sum;
+            matrix[i, j] = sum;
         }
     }
+    return matrix;
 }
 
 int[,] FillArray(int[,] matrix) // м-д заполнения массива

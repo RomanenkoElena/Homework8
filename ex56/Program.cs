@@ -7,7 +7,9 @@ Console.WriteLine($"Исходный массив {row}*{column}");
 int[,] matrix = new int[row, column];
 matrix = FillArray(matrix);
 PrintArray(matrix);
-MinSumRowElem(matrix);
+row = MinSumRowElem(matrix);
+Console.WriteLine($"Наименьшая сумма элементов в строке {row}");
+
 
 int[,] FillArray(int[,] matrix) // м-д заполнения массива
 {
@@ -33,27 +35,28 @@ void PrintArray(int[,] matrix) // м-д печати массива
     }
 }
 
-void MinSumRowElem(int[,] matrix) // м-д нахождения строки с мин.суммой элем-тов
+int MinSumRowElem(int[,] matrix) // м-д нахождения строки с мин.суммой элем-тов
 {
     int minsum = 0;
     int row = 0;
-    for (int i = 0; i < matrix.GetLength(1); i++)
+    for (int j = 0; j < matrix.GetLength(1); j++) 
     {
-        minsum = minsum + matrix[0, i];
+        minsum = minsum + matrix[0, j]; // проверяем только нулевую строку, и получившуюся сумму принимаем за мин
     }
-
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int sum = 0;
+    for (int i = 1; i < matrix.GetLength(0); i++) // i = 1, т.к. нулевую строку уже посчитали
     {
-        int sum = 0;
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            sum = sum + matrix [i, j];
+            sum = sum + matrix[i, j];
         }
+
         if (sum < minsum)
         {
             minsum = sum;
-            row = i;
+            row = i; 
         }
+        sum = 0;
     }
-    Console.WriteLine($"Наименьшая сумма элементов - {minsum}, в строке {row}");
+    return row+1; // добавляем единицу, чтобы для польз-ля массив начинался с 1й строки
 }

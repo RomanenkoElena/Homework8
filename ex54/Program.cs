@@ -7,9 +7,10 @@ Console.WriteLine($"Исходный массив {row}*{column}");
 int[,] matrix = new int[row, column]; // иниц-ция массива
 matrix = FillArray(matrix); // наполнение 
 PrintArray(matrix); // вывод на экран исходного массива
-BubbleSort(matrix); // м-д сортировки
+matrix = BubbleSort(matrix); // м-д сортировки
 Console.WriteLine();
 PrintArray(matrix); // печать отсортированного массива
+
 
 int[,] FillArray(int[,] matrix)
 {
@@ -53,6 +54,6 @@ int[,] BubbleSort(int[,] matrix)
             }
         }
     }
-return matrix;  
+    return matrix;  
 }
 
