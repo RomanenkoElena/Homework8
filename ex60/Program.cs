@@ -27,12 +27,13 @@ void PrintArray3D(int[,,] array) // м-д вывода на экран пост�
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++, Console.WriteLine(""))
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             for (int z = 0; z < array.GetLength(2); z++)
             {
                 Console.Write($"{array[i, j, z]} ({i},{j},{z}) \t");
             }
+         Console.WriteLine("");
         }
     }
 }
